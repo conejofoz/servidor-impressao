@@ -5,14 +5,21 @@
 const express = require('express');
 const pdfPrinter = require('pdf-to-printer');
 const app = express();
+const cors = require('cors');
+
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('servidor de impressão')
 })
 
 app.get('/imprimir-pdf', (req, res) => {
-  const caminhoDoArquivo = req.query.caminhoDoArquivo;
+  const arquivo = req.query.caminhoDoArquivo;
+  const usuario = process.env.USERNAME || 'geral'
+  const caminhoDoArquivo = `C:\\Users\\${usuario}\\Downloads\\'${arquivo}`
   const nomeDaImpressora = req.query.nomeDaImpressora;
+
+  console.log(caminhoDoArquivo)
 
   pdfPrinter
     .print(caminhoDoArquivo, nomeDaImpressora)
@@ -21,8 +28,8 @@ app.get('/imprimir-pdf', (req, res) => {
       res.send('PDF enviado para impressão');
     })
     .catch((error) => {
-      console.log('erro')
-      res.status(500).send(error.message);
+      console.log('erro', error);
+      res.status(500).send(error);
     });
 });
 
