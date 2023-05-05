@@ -25,11 +25,14 @@ app.get('/imprimir-pdf', (req, res) => {
     .print(caminhoDoArquivo, nomeDaImpressora)
     .then(() => {
       console.log('pdf enviado para a impressora: ' + nomeDaImpressora + ' ' + caminhoDoArquivo)
-      res.send('PDF enviado para impressão');
+      //res.send('PDF enviado para impressão');
+      res.status(200).json({message: 'PDF enviado para impressão'});
     })
     .catch((error) => {
       console.log('erro', error);
-      res.status(500).send(error);
+      //res.status(500).send(error);
+      //return res.status(500).json({message: 'Houve um erro no servidor'});
+      return res.status(500).json({message: error});
     });
 });
 
