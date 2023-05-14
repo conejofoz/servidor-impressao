@@ -88,19 +88,23 @@ app.get('/imprimir-venda', async (req, res) => {
 
 function imprimirVenda(filePath, options) {
   return new Promise(function (resolve, reject) {
-    for (let i = 0; i < options.copies; i++) {
-      pdfPrinter.print(filePath, options)
-        .then(() => {
-          console.log('Impressão OK!')
-          return resolve()
-        })
-        .catch(err => {
-          console.clear()
-          console.error('Aconteceu um erro: ', err.message)
-          return reject(err)
-        });
-    }
-  })
+    setTimeout(() => {
+
+      for (let i = 0; i < options.copies; i++) {
+        pdfPrinter.print(filePath, options)
+          .then(() => {
+            console.log('Impressão OK!')
+            return resolve()
+          })
+          .catch(err => {
+            console.clear()
+            console.error('Aconteceu um erro: ', err.message)
+            return reject(err)
+          });
+      }
+    })
+
+  }, 1000)
 }
 
 
