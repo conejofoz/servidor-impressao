@@ -52,17 +52,17 @@ app.get('/imprimir-venda', async (req, res) => {
     console.log(filePath)
     console.log(arquivo)
 
-    const printerVenda = 'HP Neverstop Laser 100x';
-    const printerPacote = 'Microsoft Print to PDF';
+    const printerVenda = 'IMP-CAIXA-01';
+    const printerPacote = 'imp-venda-pacote';
 
     const optionsVenda = {
       printer: printerVenda,
-      copies: 1
+      copies: 2
     }
 
     const optionsPacote = {
       printer: printerPacote,
-      copies: 2
+      copies: 1
     }
 
 
