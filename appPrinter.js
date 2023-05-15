@@ -52,8 +52,8 @@ app.get('/imprimir-venda', async (req, res) => {
     console.log(filePath)
     console.log(arquivo)
 
-    const printerVenda = 'EPSONAC38EF (L3150 Series)';
-    const printerPacote = 'EPSON TM-T20 ReceiptE4';
+    const printerVenda = 'HP Neverstop Laser 100x';
+    const printerPacote = 'Microsoft Print to PDF';
 
     const optionsVenda = {
       printer: printerVenda,
