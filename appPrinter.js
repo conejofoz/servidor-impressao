@@ -52,8 +52,8 @@ app.get('/imprimir-venda', async (req, res) => {
     console.log(filePath)
     console.log(arquivo)
 
-    const printerVenda = 'IMP-CAIXA-01';
-    const printerPacote = 'imp-venda-pacote';
+    const printerVenda = 'EPSON TM-T20 ReceiptE4';
+    const printerPacote = 'EPSON TM-T20 ReceiptE4';
 
     const optionsVenda = {
       printer: printerVenda,
